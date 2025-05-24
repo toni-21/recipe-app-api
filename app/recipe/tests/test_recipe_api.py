@@ -144,7 +144,6 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_full_update_recipe(self):
         """Test full update of a created recipe"""
-        original_link = "https://example.com/recipe.pdf"
         recipe = create_recipe(
             user=self.user,
             title="Sample recipe title",
@@ -170,7 +169,10 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_update_user_returns_error(self):
         """Test changing the recipe user returns error"""
-        new_user = create_user(email="newuser@test.com", password="testpass123")
+        new_user = create_user(
+            email="newuser@test.com",
+            password="testpass123",
+        )
         recipe = create_recipe(user=self.user)
         payload = {"user": new_user.id}
 
@@ -192,7 +194,10 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_delete_other_user_recipe(self):
         """Test deleting another user's recipe is unsuccessful"""
-        new_user = create_user(email="newuser@test.com", password="testpass123")
+        new_user = create_user(
+            email="newuser@test.com",
+            password="testpass123",
+        )
         recipe = create_recipe(user=new_user)
 
         url = detail_url(recipe.id)
