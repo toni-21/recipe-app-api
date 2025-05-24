@@ -3,6 +3,7 @@ Database Models
 """
 
 from django.db import models
+# from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
@@ -44,3 +45,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
+
+
+# class Recipe(models.Model):
+#     """Recipe object"""
+
+#     user = models.ForeignKey(
+#         settings.AUTH_USER_MODEL,
+#         on_delete=models.CASCADE,
+#     )
+
+#     title = models.CharField(max_length=255)
+#     description = models.TextField(blank=True)
+#     duration = models.IntegerField()
+#     price = models.DecimalField(decimal_places=2, max_digits=5)
+#     link = models.CharField(max_length=255, blank=True)
+
+#     def __str__(self):
+#         return self.description
