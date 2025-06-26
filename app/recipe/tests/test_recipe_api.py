@@ -25,7 +25,7 @@ RECIPES_URL = reverse("recipe:recipe-list")
 
 
 def detail_url(recipe_id):
-    """create and return a retail detail url"""
+    """create and return a recipe detail url"""
     return reverse("recipe:recipe-detail", args=[recipe_id])
 
 
