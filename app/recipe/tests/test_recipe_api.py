@@ -285,7 +285,7 @@ class PrivateRecipeAPITests(TestCase):
 
         # EXPECT
         self.assertEqual(res.status_code, HTTP_200_OK)
-        new_tag = Tag.objects.get(user=self.user,name="Lunch")
+        new_tag = Tag.objects.get(user=self.user, name="Lunch")
         self.assertIn(new_tag, recipe.tags.all())
 
     def test_update_recipe_assign_tag(self):
